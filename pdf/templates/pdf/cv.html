@@ -1,0 +1,135 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My CV</title>
+  <!-- Bootstrap CSS link -->
+  <!-- Bootstrap CSS link -->
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+    .profile-image {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid #fff;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+    .section-title {
+      border-bottom: 2px solid #333;
+      padding-bottom: 5px;
+      margin-bottom: 20px;
+      color: #333;
+      font-weight: bold;
+    }
+    .skills-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    .skills-list li {
+      display: inline-block;
+      margin-right: 10px;
+      padding: 5px 10px;
+      background-color: #f2f2f2;
+      border-radius: 5px;
+    }
+    .resume-section {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .header h1 {
+      font-size: 36px;
+      font-weight: bold;
+    }
+    .header p {
+      font-size: 18px;
+      font-style: italic;
+    }
+    .section-content {
+      padding-top: 20px;
+      padding-bottom: 30px;
+    }
+    .section-content h2 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .section-content p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>{{ user_profile.name }}</h1>
+    <p>{{ user_profile.degree }}</p>
+  </div>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-4">
+        <!-- Left Sidebar with Profile Image -->
+        <div class="text-center">
+
+        </div>
+        <!-- Contact Information -->
+        <div class="resume-section">
+          <h4 class="section-title">Contact</h4>
+          <p>Email: {{ user_profile.email }}</p>
+          <p>Phone: {{ user_profile.phone }}</p>
+        </div>
+        <!-- Skills -->
+        <div class="resume-section mt-4">
+          <h4 class="section-title">Skills</h4>
+          <ul class="skills-list">
+            {% for skill in skills %}
+              <li>{{ skill }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <!-- Main Content -->
+        <div class="resume-section section-content">
+          <h2>{{ user_profile.school }}</h2>
+          <p>{{ user_profile.university }}</p>
+        </div>
+
+        <div class="resume-section section-content">
+          <h4 class="section-title">Professional Summary</h4>
+          <p>{{ user_profile.summary }}</p>
+        </div>
+
+        <div class="resume-section section-content">
+          <h4 class="section-title">Work Experience</h4>
+          <div class="mb-4">
+            <h6>Previous Job</h6>
+            <p>{{ user_profile.previous_job }}</p>
+          </div>
+          <!-- Add more work experience details here if applicable -->
+        </div>
+
+        <!-- Add other sections like projects, certifications, etc. if applicable -->
+      </div>
+    </div>
+  </div>
+</body>
+</html>

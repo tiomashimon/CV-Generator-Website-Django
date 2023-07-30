@@ -1,0 +1,62 @@
+{% extends 'pdf/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <h2 class="text-center mb-4">Create Your CV</h2>
+      <p class="lead text-center">Please fill in the following details to create your CV. All fields are required.</p>
+      <form method="post">
+        {% csrf_token %}
+
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone:</label>
+          <input type="tel" class="form-control" id="phone" name="phone" required>
+        </div>
+
+        <div class="form-group">
+          <label for="summary">Summary:</label>
+          <textarea class="form-control" id="summary" name="summary" rows="4" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="degree">Degree:</label>
+          <input type="text" class="form-control" id="degree" name="degree" required>
+        </div>
+
+        <div class="form-group">
+          <label for="school">School:</label>
+          <input type="text" class="form-control" id="school" name="school" required>
+        </div>
+
+        <div class="form-group">
+          <label for="university">University:</label>
+          <input type="text" class="form-control" id="university" name="university" required>
+        </div>
+
+        <div class="form-group">
+          <label for="previous_job">Previous Job:</label>
+          <textarea class="form-control" id="previous_job" name="previous_job" rows="3" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="skills">Skills:</label>
+          <textarea class="form-control" id="skills" name="skills" rows="3" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block mt-3">Save</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

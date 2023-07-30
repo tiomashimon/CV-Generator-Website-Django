@@ -1,0 +1,38 @@
+{% extends 'pdf/base.html' %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    {% for cv in cv_objects %}
+    <div class="col-md-12">
+      <div class="card mb-3">
+        <div class="card-body">
+          {{ cv.name }}
+        </div>
+        <div class="card-footer d-flex justify-content-between">
+          <a href="#" class="btn btn-primary">View</a>
+          <a href="{% url 'cv' cv.id %}" class="btn btn-success">Download</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<br/>
+<br/>
+<br/><br/>
+<br/>
+<br/><br/>
+<br/>
+<br/><br/>
+<br/>
+<br/><br/>
+<br/>
+<br/><br/>
+<br/>
+<br/><br/>
+<br/>
+<br/>
+
+
+{% endblock %}
